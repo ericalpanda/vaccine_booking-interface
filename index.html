@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Liên kết Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <!-- Liên kết CSS Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/popup.css">
+  <link rel="stylesheet" href="assets/css/scheduler.css">
+  <link rel="stylesheet" href="assets/css/vaccinetable.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="text-center">Vaccine table</h1>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>ID Vaccine</th>
+            <th>Vaccine Name</th>
+            <th>Hospital</th>
+            <th>Availability</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>V001</td>
+            <td>COVID-19</td>
+            <td>General Hospital</td>
+            <td><i class="fas fa-check-circle"></i></td>
+            <td>
+              <div>
+                <button class="open-button btn btn-primary" onclick="openForm()">Schedule</button>
+                <div class="form-popup" id="myForm">
+                  <div class="container">
+                    <section class="u-align-center u-clearfix u-section-2" id="sec-ce90">
+                      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+                        <div class="u-expanded-width u-tab-links-align-left u-tabs u-tabs-1">
+
+                          <!-- Tab panel 1 -->
+                          <div class="u-tab-panel u-container-style u-tab-active u-white u-tab-pane-1" id="tab-0da5"
+                            role="tabpanel" aria-labelledby="link-tab-0da5">
+                            <div class="u-container-layout u-valign-top u-container-layout-1">
+                              <form action="/action_page.php" class="form-container">
+                                <h2>Confirm Information</h2>
+                                <input type="text" placeholder="Name" name="email" required>
+                                <input type="password" placeholder="Vaccine" name="vc" required>
+                                <input type="password" placeholder="Email" name="psw" required>
+                                <form>
+                                  <div>
+                                    <span class="radio-label">
+                                      <input type="radio" name="gender" id="male" value="male">
+                                      <label for="male">Men</label>
+                                    </span>
+                                    <span class="radio-label">
+                                      <input type="radio" name="gender" id="female" value="female">
+                                      <label for="female">Women</label>
+                                    </span>
+                                    <span class="radio-label">
+                                      <input type="radio" name="gender" id="none" value="none">
+                                      <label for="none">None</label>
+                                    </span>
+                                  </div>
+                                </form>
+                                <div class="btn-group" role="group" aria-label="Button group">
+                                  <button type="button" class="btn btn-secondary" onclick="closeForm()">Close</button>
+                                  <button type="button" class="btn btn-primary ml-2" onclick="nextTab()">Next</button>
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+
+                          <!-- Tab panel 2 -->
+                          <div class="u-tab-panel u-container-style u-white u-tab-pane-2" id="tab-14b7" role="tabpanel"
+                            aria-labelledby="link-tab-14b7">
+                            <div class="u-container-layout u-valign-top u-container-layout-2">
+                              <div class="container u-tab-panel-2"> <!-- Added class u-tab-panel-2 -->
+                                <h2>Appointment Scheduler</h2>
+                                <div class="calendar">
+                                  <!-- Nội dung tab panel 2 -->
+                                  <div class="dates">
+                                    <h4>Dates</h4>
+                                    <ul id="dateList">
+                                      <li>
+                                        <input type="radio" id="date1" name="date">
+                                        <label for="date1">June 2, 2023</label>
+                                      </li>
+                                      <li>
+                                        <input type="radio" id="date2" name="date">
+                                        <label for="date2">June 3, 2023</label>
+                                      </li>
+                                      <li>
+                                        <input type="radio" id="date3" name="date">
+                                        <label for="date3">June 4, 2023</label>
+                                      </li>
+                                      <li>
+                                        <input type="radio" id="date4" name="date">
+                                        <label for="date4">June 5, 2023</label>
+                                      </li>
+                                      <li>
+                                        <input type="radio" id="date5" name="date">
+                                        <label for="date5">June 6, 2023</label>
+                                      </li>
+                                      <li>
+                                        <input type="radio" id="date6" name="date">
+                                        <label for="date6">June 7, 2023</label>
+                                      </li>
+                                      <li>
+                                        <input type="radio" id="date7" name="date">
+                                        <label for="date7">June 8, 2023</label>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                  <div class="times">
+                                    <h4>Times</h4>
+                                    <ul id="timesList">
+                                      <li class="row">
+                                        <div class="col">
+                                          <input type="radio" id="time1" name="time">
+                                          <label for="time1">9:00 AM - 10:00 AM</label>
+                                        </div>
+                                        <div class="col">
+                                          <input type="radio" id="time2" name="time">
+                                          <label for="time2">10:00 AM - 11:00 AM</label>
+                                        </div>
+                                      </li>
+                                      <li class="row">
+                                        <div class="col">
+                                          <input type="radio" id="time3" name="time">
+                                          <label for="time3">11:00 AM - 12:00 PM</label>
+                                        </div>
+                                        <div class="col">
+                                          <input type="radio" id="time4" name="time">
+                                          <label for="time4">12:00 PM - 1:00 PM</label>
+                                        </div>
+                                      </li>
+                                      <li class="row">
+                                        <div class="col">
+                                          <input type="radio" id="time5" name="time">
+                                          <label for="time5">1:00 PM - 2:00 PM</label>
+                                        </div>
+                                        <div class="col">
+                                          <input type="radio" id="time6" name="time">
+                                          <label for="time6">2:00 PM - 3:00 PM</label>
+                                        </div>
+                                      </li>
+                                    </ul>
+                                    <ul>
+                                      <li>
+                                        <div>
+                                          <p>Selected Time</p>
+                                          <p id="selectedTime"></p>
+                                        </div>
+                                        <div class="btn-group" role="group" aria-label="Button group">
+                                          <button type="button" class="btn btn-secondary"
+                                            onclick="prevTab()">Previous</button>
+                                          <button type="button" class="btn btn-primary ml-2"
+                                            onclick="nextTab()">Next</button>
+                                        </div>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <!-- Tab panel 3 -->
+                          <div class="u-tab-panel u-container-style u-white u-tab-pane-3" id="tab-2917" role="tabpanel"
+                            aria-labelledby="link-tab-2917">
+                            <div class="u-container-layout u-container-layout-3">
+                              <!-- Nội dung tab panel 3 -->
+                              <button type="button" class="btn btn-secondary" onclick="prevTab()">Previous</button>
+                              <button type="submit" class="btn btn-primary ml-2">Submit</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>V002</td>
+            <td>Flu</td>
+            <td>Medical Center</td>
+            <td><i class="fas fa-times-circle"></i></td>
+            <td><button class="btn btn-primary">Schedule</button></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>V003</td>
+            <td>Measles</td>
+            <td>Health Clinic</td>
+            <td><i class="fas fa-check-circle"></i></td>
+            <td><button class="btn btn-primary">Schedule</button></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>V004</td>
+            <td>Polio</td>
+            <td>Hospital A</td>
+            <td><i class="fas fa-times-circle"></i></td>
+            <td><button class="btn btn-primary">Schedule</button></td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>V005</td>
+            <td>Tetanus</td>
+            <td>Health Clinic</td>
+            <td><i class="fas fa-check-circle"></i></td>
+            <td><button class="btn btn-primary">Schedule</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Phân trang -->
+    <div class="pagination">
+      <nav aria-label="Page navigation">
+        <ul class="pagination pagination-lg">
+          <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+          <li class="page-item active"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Liên kết các tệp JavaScript Bootstrap -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script src="assets/js/scripts.js"></script>
+</body>
+
+</html>

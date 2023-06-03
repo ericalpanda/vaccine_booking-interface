@@ -1,0 +1,60 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.text-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-success {
+    color: green;
+}
+
+.text-danger {
+    color: red;
+}
+
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Tùy chỉnh màu sắc và kích thước phân trang */
+.pagination .page-item .page-link {
+    background-color: #f2f2f2;
+    color: #333;
+    border-color: #ddd;
+    font-size: 14px;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
+}
+
+.pagination .page-item.disabled .page-link {
+    background-color: #f2f2f2;
+    color: #ddd;
+    border-color: #ddd;
+}
+
+.radio-label {
+    display: inline-block;
+    margin-right: 10px;
+}
